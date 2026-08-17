@@ -5,105 +5,502 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background: #fcecf5;
+  background: #f7dce8;
+  font-family: "Courier New", monospace;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   direction: rtl;
 }
 
 .game {
-  width: 90%;
-  max-width: 430px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.screen.active {
+  display: flex;
+  animation: appear 0.45s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pixel-box {
+  width: min(90%, 430px);
+  background: #fff1f7;
+  border: 5px solid #9c667e;
+  box-shadow:
+    8px 8px 0 #9c667e,
+    inset 0 0 0 4px #f8cddd;
+  padding: 35px 25px;
   text-align: center;
 }
 
-.top {
+.big-paw {
+  font-size: 65px;
   margin-bottom: 15px;
 }
 
-.top h1 {
-  margin-bottom: 5px;
-  color: #7d5268;
+h1 {
+  color: #73485e;
+  font-size: 30px;
+  margin: 12px 0;
 }
 
-.top p {
-  color: #a2768d;
+p {
+  color: #93677b;
+  line-height: 1.8;
 }
 
-.cat-area {
-  background: #fff7fb;
-  border-radius: 30px;
-  height: 230px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 10px 30px #e7cbd9;
+.step {
+  color: #bd7997;
+  font-size: 13px;
 }
 
-#cat {
-  font-size: 110px;
-  transition: 0.3s;
-}
-
-.card {
-  background: white;
-  margin-top: 18px;
-  padding: 25px;
-  border-radius: 25px;
-  box-shadow: 0 10px 25px #ead2df;
-}
-
-h2 {
-  font-size: 18px;
-  color: #765466;
-}
-
-.colors {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.colors button {
-  border: none;
-  background: #fff0f7;
-  border-radius: 15px;
-  font-size: 28px;
-  padding: 10px;
+button {
+  font-family: inherit;
   cursor: pointer;
 }
 
-.colors button:active {
-  transform: scale(0.9);
+.pixel-box > button {
+  margin-top: 20px;
+  border: 3px solid #86556c;
+  background: #e89fbe;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  box-shadow: 5px 5px 0 #86556c;
+}
+
+.pixel-box > button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 1px 1px 0 #86556c;
+}
+
+/* القطة */
+
+.preview {
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat {
+  width: 115px;
+  height: 100px;
+  position: relative;
+}
+
+.face {
+  position: absolute;
+  width: 100px;
+  height: 85px;
+  background: #d9b58c;
+  border-radius: 45%;
+  left: 8px;
+  top: 20px;
+  border: 4px solid #684d42;
+}
+
+.ear {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background: #d9b58c;
+  transform: rotate(45deg);
+  top: 5px;
+  border: 4px solid #684d42;
+}
+
+.ear.left {
+  left: 8px;
+}
+
+.ear.right {
+  right: 8px;
+}
+
+.eye {
+  position: absolute;
+  width: 14px;
+  height: 18px;
+  border-radius: 50%;
+  background: #6bc7d1;
+  top: 34px;
+}
+
+.eye-left {
+  left: 24px;
+}
+
+.eye-right {
+  right: 24px;
+}
+
+.nose {
+  position: absolute;
+  left: 45px;
+  top: 52px;
+  color: #8c5262;
+}
+
+.fur-choices {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.fur-choices button {
+  width: 58px;
+  height: 58px;
+  border: 3px solid #a66c83;
+  background: white;
+  font-size: 25px;
+}
+
+.eye-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.eye-choices button {
+  padding: 14px;
+  border: 3px solid #a66c83;
+  background: #fff;
+  color: #73485e;
 }
 
 input {
   width: 100%;
-  padding: 14px;
-  border: 2px solid #f1d5e3;
-  border-radius: 15px;
-  outline: none;
+  padding: 15px;
+  border: 3px solid #b87592;
+  background: #fffaff;
   text-align: center;
+  font-family: inherit;
   font-size: 16px;
+  outline: none;
 }
 
-.next {
+.name-cat {
+  font-size: 70px;
+  margin: 15px;
+}
+
+/* الأطواق */
+
+.collars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.collar {
+  border: 3px solid #86556c;
+  background: white;
+  padding: 20px 8px;
+  color: #73485e;
+}
+
+.collar span {
+  display: block;
+  width: 65px;
+  height: 15px;
+  margin: auto auto 10px;
+  border-radius: 5px;
+}
+
+.green span {
+  background: #72b987;
+}
+
+.blue span {
+  background: #70a9df;
+}
+
+.pink span {
+  background: #e98eae;
+}
+
+.purple span {
+  background: #a98ad4;
+}
+
+/* البيوت */
+
+.houses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.house {
+  border: 3px solid #86556c;
+  padding: 18px 5px;
+  font-size: 14px;
+  color: #73485e;
+}
+
+.house div {
+  font-size: 45px;
+  margin-bottom: 8px;
+}
+
+.house1 {
+  background: #ffe1ed;
+}
+
+.house2 {
+  background: #dff0ff;
+}
+
+.house3 {
+  background: #e0f2df;
+}
+
+.house4 {
+  background: #eadfff;
+}
+
+/* النهاية */
+
+.final-game {
   width: 100%;
-  margin-top: 15px;
-  padding: 14px;
-  border: none;
-  border-radius: 15px;
-  background: #d88bad;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+  height: 100%;
+  text-align: center;
 }
 
-#result {
-  margin-top: 15px;
-  font-size: 20px;
-  color: #765466;
+.final-title {
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.final-title h1 {
+  font-size: 25px;
+}
+
+.final-title span {
+  color: #b45f83;
+  font-size: 25px;
+}
+
+.room {
+  width: min(94%, 600px);
+  height: 65%;
+  margin: auto;
+  position: relative;
+  border: 5px solid #765263;
+  overflow: hidden;
+  background: #ffeaf2;
+}
+
+/* الأرضية */
+
+.room::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28%;
+  background: #e5b8a4;
+  border-top: 5px solid #765263;
+}
+
+/* النافذة */
+
+.window {
+  position: absolute;
+  top: 30px;
+  left: 35px;
+  width: 85px;
+  height: 85px;
+  background: #bde4f0;
+  border: 5px solid #765263;
+  z-index: 2;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* النبتة */
+
+.plant {
+  position: absolute;
+  right: 35px;
+  bottom: 25%;
+  font-size: 60px;
+  z-index: 3;
+}
+
+/* السجادة */
+
+.rug {
+  position: absolute;
+  width: 260px;
+  height: 90px;
+  border-radius: 50%;
+  background: #f5c6d8;
+  border: 4px solid #a96882;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12%;
+  z-index: 2;
+}
+
+/* القطة النهائية */
+
+.final-cat {
+  position: absolute;
+  width: 125px;
+  height: 140px;
+  left: 50%;
+  bottom: 17%;
+  transform: translateX(-50%);
+  z-index: 5;
+  animation: catMove 5s infinite ease-in-out;
+}
+
+@keyframes catMove {
+  0%, 100% {
+    transform: translateX(-50%) translateX(-45px);
+  }
+
+  50% {
+    transform: translateX(-50%) translateX(45px);
+  }
+}
+
+.final-face {
+  position: absolute;
+  width: 105px;
+  height: 90px;
+  background: #d9b58c;
+  border: 4px solid #684d42;
+  border-radius: 45%;
+  left: 10px;
+  top: 10px;
+}
+
+.final-ear {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background: #d9b58c;
+  border: 4px solid #684d42;
+  transform: rotate(45deg);
+  top: 0;
+  z-index: -1;
+}
+
+.final-ear.left {
+  left: 8px;
+}
+
+.final-ear.right {
+  right: 8px;
+}
+
+.final-eye {
+  position: absolute;
+  width: 14px;
+  height: 18px;
+  border-radius: 50%;
+  background: #6bc7d1;
+  top: 34px;
+}
+
+.left-eye {
+  left: 25px;
+}
+
+.right-eye {
+  right: 25px;
+}
+
+.final-nose {
+  position: absolute;
+  top: 55px;
+  left: 45px;
+  color: #c66d8a;
+}
+
+.collar-band {
+  position: absolute;
+  width: 80px;
+  height: 12px;
+  left: 22px;
+  top: 87px;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+.body {
+  position: absolute;
+  width: 75px;
+  height: 65px;
+  background: #d9b58c;
+  border: 4px solid #684d42;
+  border-radius: 50%;
+  left: 25px;
+  top: 80px;
+}
+
+.tail {
+  position: absolute;
+  width: 55px;
+  height: 25px;
+  border: 8px solid #684d42;
+  border-left: 0;
+  border-radius: 0 30px 30px 0;
+  right: -5px;
+  top: 95px;
+  transform: rotate(-25deg);
+}
+
+.food {
+  position: absolute;
+  bottom: 31%;
+  left: 15%;
+  font-size: 35px;
+  z-index: 5;
+}
+
+.toy {
+  position: absolute;
+  bottom: 30%;
+  right: 18%;
+  font-size: 35px;
+  z-index: 5;
+}
+
+.final-text {
+  font-size: 14px;
+  margin-top: 18px;
 }
