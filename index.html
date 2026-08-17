@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تبنّي قطتك 🐾</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="game">
+
+    <div class="top">
+      <h1>🐾 تبنّي قطتك</h1>
+      <p>اصنعي قطتك الخاصة!</p>
+    </div>
+
+    <div class="cat-area">
+      <div id="cat">🐱</div>
+    </div>
+
+    <div class="card">
+
+      <h2>اختاري لون قطتك 🎨</h2>
+
+      <div class="colors">
+        <button onclick="changeCat('🐱')">🤎</button>
+        <button onclick="changeCat('🐈')">🩶</button>
+        <button onclick="changeCat('🐈‍⬛')">🖤</button>
+        <button onclick="changeCat('😺')">🤍</button>
+      </div>
+
+      <h2>وش اسمها؟ 🏷️</h2>
+
+      <input id="catName" placeholder="اكتبي اسم قطتك">
+
+      <button class="next" onclick="finish()">تبنّي القطة 💗</button>
+
+    </div>
+
+    <div id="result"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
