@@ -5,13 +5,10 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: #f7dce8;
+  background: #f7d9e7;
   font-family: "Courier New", monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
   direction: rtl;
+  overflow: hidden;
 }
 
 .game {
@@ -24,17 +21,17 @@ body {
   position: absolute;
   inset: 0;
   display: none;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 20px;
 }
 
 .screen.active {
   display: flex;
-  animation: appear 0.45s ease;
+  animation: show .45s ease;
 }
 
-@keyframes appear {
+@keyframes show {
   from {
     opacity: 0;
     transform: translateY(15px);
@@ -46,36 +43,31 @@ body {
   }
 }
 
-.pixel-box {
+.box {
   width: min(90%, 430px);
-  background: #fff1f7;
-  border: 5px solid #9c667e;
-  box-shadow:
-    8px 8px 0 #9c667e,
-    inset 0 0 0 4px #f8cddd;
-  padding: 35px 25px;
+  background: #fff5fa;
+  border: 5px solid #87576c;
+  box-shadow: 8px 8px 0 #87576c;
+  padding: 30px 25px;
   text-align: center;
 }
 
-.big-paw {
-  font-size: 65px;
-  margin-bottom: 15px;
+.paw {
+  font-size: 70px;
 }
 
 h1 {
-  color: #73485e;
-  font-size: 30px;
-  margin: 12px 0;
+  color: #71475b;
+  margin: 15px 0;
 }
 
 p {
-  color: #93677b;
+  color: #94677c;
   line-height: 1.8;
 }
 
-.step {
-  color: #bd7997;
-  font-size: 13px;
+small {
+  color: #b66f8d;
 }
 
 button {
@@ -83,55 +75,53 @@ button {
   cursor: pointer;
 }
 
-.pixel-box > button {
-  margin-top: 20px;
-  border: 3px solid #86556c;
-  background: #e89fbe;
+.box > button {
+  border: 3px solid #87576c;
+  background: #e79cba;
   color: white;
-  padding: 14px 28px;
+  padding: 14px 30px;
+  margin-top: 15px;
   font-size: 16px;
-  box-shadow: 5px 5px 0 #86556c;
+  box-shadow: 5px 5px 0 #87576c;
 }
 
-.pixel-box > button:active {
+.box > button:active {
   transform: translate(4px, 4px);
-  box-shadow: 1px 1px 0 #86556c;
+  box-shadow: 1px 1px 0 #87576c;
 }
 
-/* القطة */
-
-.preview {
+.cat-preview {
   height: 180px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .cat {
-  width: 115px;
-  height: 100px;
+  width: 120px;
+  height: 110px;
   position: relative;
 }
 
-.face {
-  position: absolute;
+.cat-face {
   width: 100px;
   height: 85px;
-  background: #d9b58c;
-  border-radius: 45%;
-  left: 8px;
+  position: absolute;
+  left: 10px;
   top: 20px;
+  background: #d9ad83;
   border: 4px solid #684d42;
+  border-radius: 45%;
 }
 
 .ear {
-  position: absolute;
   width: 45px;
   height: 45px;
-  background: #d9b58c;
-  transform: rotate(45deg);
-  top: 5px;
+  background: #d9ad83;
   border: 4px solid #684d42;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 5px;
 }
 
 .ear.left {
@@ -142,171 +132,153 @@ button {
   right: 8px;
 }
 
-.eye {
-  position: absolute;
+.cat-eye {
   width: 14px;
   height: 18px;
+  background: #69c9dc;
   border-radius: 50%;
-  background: #6bc7d1;
-  top: 34px;
+  position: absolute;
+  top: 32px;
 }
 
-.eye-left {
-  left: 24px;
+.left-eye {
+  left: 22px;
 }
 
-.eye-right {
-  right: 24px;
+.right-eye {
+  right: 22px;
 }
 
 .nose {
   position: absolute;
-  left: 45px;
-  top: 52px;
-  color: #8c5262;
+  top: 53px;
+  left: 43px;
+  color: #bd6e86;
 }
 
-.fur-choices {
+.options {
   display: flex;
   justify-content: center;
   gap: 12px;
 }
 
-.fur-choices button {
+.options button {
   width: 58px;
   height: 58px;
-  border: 3px solid #a66c83;
   background: white;
+  border: 3px solid #a86b83;
   font-size: 25px;
 }
 
-.eye-choices {
+.eye-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.eye-choices button {
-  padding: 14px;
-  border: 3px solid #a66c83;
-  background: #fff;
-  color: #73485e;
+.eye-options button {
+  padding: 15px;
+  background: white;
+  border: 3px solid #a86b83;
+  color: #71475b;
+}
+
+.big-cat {
+  font-size: 70px;
+  margin: 15px;
 }
 
 input {
   width: 100%;
   padding: 15px;
   border: 3px solid #b87592;
-  background: #fffaff;
-  text-align: center;
+  background: white;
   font-family: inherit;
+  text-align: center;
   font-size: 16px;
   outline: none;
 }
 
-.name-cat {
-  font-size: 70px;
-  margin: 15px;
-}
-
-/* الأطواق */
-
-.collars {
+.collar-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
 
-.collar {
-  border: 3px solid #86556c;
+.collar-options button {
+  padding: 18px 5px;
+  border: 3px solid #87576c;
   background: white;
-  padding: 20px 8px;
-  color: #73485e;
+  color: #71475b;
 }
 
-.collar span {
+.collar {
   display: block;
   width: 65px;
-  height: 15px;
+  height: 14px;
   margin: auto auto 10px;
-  border-radius: 5px;
 }
 
-.green span {
-  background: #72b987;
+.green {
+  background: #71b77e;
 }
 
-.blue span {
-  background: #70a9df;
+.blue {
+  background: #6da8df;
 }
 
-.pink span {
-  background: #e98eae;
+.pink {
+  background: #e88dab;
 }
 
-.purple span {
-  background: #a98ad4;
+.purple {
+  background: #a786d3;
 }
 
-/* البيوت */
-
-.houses {
+.house-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
 
 .house {
-  border: 3px solid #86556c;
-  padding: 18px 5px;
-  font-size: 14px;
-  color: #73485e;
-}
-
-.house div {
+  border: 3px solid #87576c;
+  padding: 20px 5px;
   font-size: 45px;
-  margin-bottom: 8px;
 }
 
-.house1 {
-  background: #ffe1ed;
+.house span {
+  display: block;
+  font-size: 13px;
+  margin-top: 8px;
+  font-family: inherit;
 }
 
-.house2 {
-  background: #dff0ff;
+.pink-house {
+  background: #ffe0ec;
 }
 
-.house3 {
-  background: #e0f2df;
+.blue-house {
+  background: #dcefff;
 }
 
-.house4 {
-  background: #eadfff;
+.green-house {
+  background: #dff2dc;
 }
 
-/* النهاية */
+.purple-house {
+  background: #e9ddff;
+}
 
-.final-game {
+.final-page {
   width: 100%;
   height: 100%;
   text-align: center;
 }
 
-.final-title {
+.final-page h1 {
+  font-size: 25px;
   height: 12%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-.final-title h1 {
-  font-size: 25px;
-}
-
-.final-title span {
-  color: #b45f83;
-  font-size: 25px;
 }
 
 .room {
@@ -315,161 +287,165 @@ input {
   margin: auto;
   position: relative;
   border: 5px solid #765263;
-  overflow: hidden;
   background: #ffeaf2;
+  overflow: hidden;
 }
-
-/* الأرضية */
 
 .room::after {
   content: "";
   position: absolute;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   height: 28%;
-  background: #e5b8a4;
+  background: #dcb09b;
   border-top: 5px solid #765263;
 }
 
-/* النافذة */
-
 .window {
   position: absolute;
-  top: 30px;
-  left: 35px;
-  width: 85px;
-  height: 85px;
-  background: #bde4f0;
+  top: 25px;
+  left: 25px;
+  width: 80px;
+  height: 80px;
+  background: #bce5f2;
   border: 5px solid #765263;
-  z-index: 2;
-  font-size: 40px;
+  font-size: 35px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
-
-/* النبتة */
 
 .plant {
   position: absolute;
-  right: 35px;
-  bottom: 25%;
-  font-size: 60px;
+  right: 25px;
+  bottom: 28%;
+  font-size: 55px;
   z-index: 3;
 }
 
-/* السجادة */
-
 .rug {
   position: absolute;
-  width: 260px;
-  height: 90px;
-  border-radius: 50%;
-  background: #f5c6d8;
+  width: 250px;
+  height: 85px;
+  background: #f1bfd2;
   border: 4px solid #a96882;
+  border-radius: 50%;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 12%;
+  bottom: 10%;
   z-index: 2;
 }
 
-/* القطة النهائية */
+.toy {
+  position: absolute;
+  right: 18%;
+  bottom: 28%;
+  font-size: 35px;
+  z-index: 4;
+}
+
+.food {
+  position: absolute;
+  left: 18%;
+  bottom: 29%;
+  font-size: 32px;
+  z-index: 4;
+}
 
 .final-cat {
   position: absolute;
-  width: 125px;
-  height: 140px;
+  width: 130px;
+  height: 145px;
   left: 50%;
   bottom: 17%;
   transform: translateX(-50%);
-  z-index: 5;
-  animation: catMove 5s infinite ease-in-out;
+  z-index: 6;
+  animation: walk 5s infinite ease-in-out;
 }
 
-@keyframes catMove {
+@keyframes walk {
   0%, 100% {
-    transform: translateX(-50%) translateX(-45px);
+    transform: translateX(-50%) translateX(-50px);
   }
 
   50% {
-    transform: translateX(-50%) translateX(45px);
+    transform: translateX(-50%) translateX(50px);
   }
 }
 
 .final-face {
-  position: absolute;
   width: 105px;
   height: 90px;
-  background: #d9b58c;
+  background: #d9ad83;
   border: 4px solid #684d42;
   border-radius: 45%;
-  left: 10px;
+  position: absolute;
+  left: 12px;
   top: 10px;
 }
 
 .final-ear {
-  position: absolute;
   width: 45px;
   height: 45px;
-  background: #d9b58c;
+  background: #d9ad83;
   border: 4px solid #684d42;
   transform: rotate(45deg);
+  position: absolute;
   top: 0;
-  z-index: -1;
 }
 
-.final-ear.left {
+.ear1 {
   left: 8px;
 }
 
-.final-ear.right {
+.ear2 {
   right: 8px;
 }
 
 .final-eye {
-  position: absolute;
   width: 14px;
   height: 18px;
   border-radius: 50%;
-  background: #6bc7d1;
-  top: 34px;
+  background: #69c9dc;
+  position: absolute;
+  top: 33px;
 }
 
-.left-eye {
-  left: 25px;
+.eye1 {
+  left: 22px;
 }
 
-.right-eye {
-  right: 25px;
+.eye2 {
+  right: 22px;
 }
 
 .final-nose {
   position: absolute;
-  top: 55px;
   left: 45px;
-  color: #c66d8a;
+  top: 53px;
+  color: #c66b83;
 }
 
-.collar-band {
-  position: absolute;
-  width: 80px;
-  height: 12px;
-  left: 22px;
-  top: 87px;
-  border-radius: 5px;
-  z-index: 5;
-}
-
-.body {
-  position: absolute;
-  width: 75px;
+.final-body {
+  width: 78px;
   height: 65px;
-  background: #d9b58c;
+  background: #d9ad83;
   border: 4px solid #684d42;
   border-radius: 50%;
-  left: 25px;
+  position: absolute;
+  left: 27px;
   top: 80px;
+}
+
+.final-collar {
+  position: absolute;
+  width: 78px;
+  height: 12px;
+  left: 25px;
+  top: 86px;
+  z-index: 8;
 }
 
 .tail {
@@ -479,28 +455,7 @@ input {
   border: 8px solid #684d42;
   border-left: 0;
   border-radius: 0 30px 30px 0;
-  right: -5px;
+  right: -2px;
   top: 95px;
   transform: rotate(-25deg);
-}
-
-.food {
-  position: absolute;
-  bottom: 31%;
-  left: 15%;
-  font-size: 35px;
-  z-index: 5;
-}
-
-.toy {
-  position: absolute;
-  bottom: 30%;
-  right: 18%;
-  font-size: 35px;
-  z-index: 5;
-}
-
-.final-text {
-  font-size: 14px;
-  margin-top: 18px;
 }
