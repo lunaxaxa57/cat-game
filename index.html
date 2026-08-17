@@ -3,126 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تبنّي قطتك 🐾</title>
-  <link rel="stylesheet" href="style.css">
+  <title>اصنع قطتك 🐾</title>
+  <link rel="stylesheet" href="Style.css">
 </head>
 
 <body>
 
 <div class="game">
 
-  <!-- البداية -->
   <section class="screen active" id="startScreen">
-    <div class="pixel-box">
-      <div class="big-paw">🐾</div>
+    <div class="box">
+      <div class="paw">🐾</div>
       <h1>اصنع قطتك</h1>
-      <p>اصنع صديقك الصغير واختر كل تفاصيله ♡</p>
-      <button onclick="goTo('furScreen')">ابدأ اللعبة ✦</button>
+      <p>خلينا نصنع قطتك الصغيرة ♡</p>
+      <button onclick="goTo('furScreen')">ابدأ ✦</button>
     </div>
   </section>
 
-
-  <!-- لون القطة -->
   <section class="screen" id="furScreen">
-    <div class="pixel-box">
-      <span class="step">1 / 6</span>
-      <h1>اختر لون قطتك</h1>
+    <div class="box">
+      <small>1 / 6</small>
+      <h1>اختاري لون قطتك</h1>
 
-      <div class="preview">
-        <div class="cat" id="furPreview">
+      <div class="cat-preview">
+        <div class="cat" id="catFur">
           <div class="ear left"></div>
           <div class="ear right"></div>
-          <div class="face">
-            <div class="eye eye-left"></div>
-            <div class="eye eye-right"></div>
-            <div class="nose">•</div>
+          <div class="cat-face">
+            <div class="cat-eye left-eye"></div>
+            <div class="cat-eye right-eye"></div>
+            <div class="nose">♥</div>
           </div>
         </div>
       </div>
 
-      <div class="choices fur-choices">
-        <button onclick="chooseFur('#d9b58c', this)">🤎</button>
-        <button onclick="chooseFur('#a9adb5', this)">🩶</button>
-        <button onclick="chooseFur('#29272c', this)">🖤</button>
-        <button onclick="chooseFur('#e9a35b', this)">🧡</button>
+      <div class="options">
+        <button onclick="chooseFur('#d9ad83')">🤎</button>
+        <button onclick="chooseFur('#a9adb5')">🩶</button>
+        <button onclick="chooseFur('#29272c')">🖤</button>
+        <button onclick="chooseFur('#f0a45f')">🧡</button>
       </div>
     </div>
   </section>
 
-
-  <!-- لون العيون -->
   <section class="screen" id="eyesScreen">
-    <div class="pixel-box">
-      <span class="step">2 / 6</span>
-      <h1>اختر لون عيونها</h1>
+    <div class="box">
+      <small>2 / 6</small>
+      <h1>اختاري لون عيونها</h1>
 
-      <div class="preview">
-        <div class="cat" id="eyesPreview">
+      <div class="cat-preview">
+        <div class="cat" id="catEyes">
           <div class="ear left"></div>
           <div class="ear right"></div>
-          <div class="face">
-            <div class="eye eye-left"></div>
-            <div class="eye eye-right"></div>
-            <div class="nose">•</div>
+          <div class="cat-face">
+            <div class="cat-eye left-eye"></div>
+            <div class="cat-eye right-eye"></div>
+            <div class="nose">♥</div>
           </div>
         </div>
       </div>
 
-      <div class="eye-choices">
-        <button onclick="chooseEyes('#6bc7d1', this)">أزرق</button>
-        <button onclick="chooseEyes('#72bd6c', this)">أخضر</button>
-        <button onclick="chooseEyes('#8b633f', this)">بني</button>
-        <button onclick="chooseEyes('#c69be8', this)">بنفسجي</button>
+      <div class="eye-options">
+        <button onclick="chooseEyes('#69c9dc')">أزرق 💙</button>
+        <button onclick="chooseEyes('#70bd72')">أخضر 💚</button>
+        <button onclick="chooseEyes('#9b6a45')">بني 🤎</button>
+        <button onclick="chooseEyes('#ae7ddd')">بنفسجي 💜</button>
       </div>
     </div>
   </section>
 
-
-  <!-- الاسم -->
   <section class="screen" id="nameScreen">
-    <div class="pixel-box">
-      <span class="step">3 / 6</span>
+    <div class="box">
+      <small>3 / 6</small>
       <h1>وش اسم قطتك؟</h1>
 
-      <div class="name-cat">🐱</div>
+      <div class="big-cat">🐱</div>
 
-      <input
-        id="nameInput"
-        type="text"
-        maxlength="15"
-        placeholder="اكتب اسمها هنا..."
-      >
+      <input id="nameInput" maxlength="15" placeholder="اكتبي اسمها...">
 
       <button onclick="saveName()">هذا اسمها ♡</button>
     </div>
   </section>
 
-
-  <!-- الطوق -->
   <section class="screen" id="collarScreen">
-    <div class="pixel-box">
-      <span class="step">4 / 6</span>
-      <h1>اختار طوقها 🎀</h1>
+    <div class="box">
+      <small>4 / 6</small>
+      <h1>اختاري طوقها 🎀</h1>
 
-      <div class="collars">
+      <div class="collar-options">
 
-        <button class="collar green" onclick="chooseCollar('#72b987', this)">
-          <span></span>
+        <button onclick="chooseCollar('#71b77e')">
+          <span class="collar green"></span>
           أخضر
         </button>
 
-        <button class="collar blue" onclick="chooseCollar('#70a9df', this)">
-          <span></span>
+        <button onclick="chooseCollar('#6da8df')">
+          <span class="collar blue"></span>
           أزرق
         </button>
 
-        <button class="collar pink" onclick="chooseCollar('#e98eae', this)">
-          <span></span>
+        <button onclick="chooseCollar('#e88dab')">
+          <span class="collar pink"></span>
           وردي
         </button>
 
-        <button class="collar purple" onclick="chooseCollar('#a98ad4', this)">
-          <span></span>
+        <button onclick="chooseCollar('#a786d3')">
+          <span class="collar purple"></span>
           بنفسجي
         </button>
 
@@ -130,91 +116,76 @@
     </div>
   </section>
 
-
-  <!-- البيت -->
   <section class="screen" id="houseScreen">
-    <div class="pixel-box">
-      <span class="step">5 / 6</span>
-      <h1>اختار بيتها 🏠</h1>
+    <div class="box">
+      <small>5 / 6</small>
+      <h1>اختاري بيتها 🏠</h1>
 
-      <div class="houses">
+      <div class="house-options">
 
-        <button class="house house1" onclick="chooseHouse('pink')">
-          <div>🏠</div>
-          <span>البيت الوردي</span>
+        <button class="house pink-house" onclick="chooseHouse('#ffe0ec')">
+          🏠
+          <span>بيت وردي</span>
         </button>
 
-        <button class="house house2" onclick="chooseHouse('blue')">
-          <div>🏡</div>
-          <span>البيت الأزرق</span>
+        <button class="house blue-house" onclick="chooseHouse('#dcefff')">
+          🏡
+          <span>بيت أزرق</span>
         </button>
 
-        <button class="house house3" onclick="chooseHouse('green')">
-          <div>🏠</div>
-          <span>البيت الأخضر</span>
+        <button class="house green-house" onclick="chooseHouse('#dff2dc')">
+          🏠
+          <span>بيت أخضر</span>
         </button>
 
-        <button class="house house4" onclick="chooseHouse('purple')">
-          <div>🏡</div>
-          <span>البيت البنفسجي</span>
+        <button class="house purple-house" onclick="chooseHouse('#e9ddff')">
+          🏡
+          <span>بيت بنفسجي</span>
         </button>
 
       </div>
     </div>
   </section>
 
-
-  <!-- النهاية -->
   <section class="screen" id="finalScreen">
 
-    <div class="final-game" id="finalGame">
+    <div class="final-page">
 
-      <div class="final-title">
-        <span>♡</span>
-        <h1 id="finalName">قطتك</h1>
-        <span>♡</span>
-      </div>
+      <h1>♡ <span id="finalName">قطتك</span> ♡</h1>
 
-      <div class="room">
+      <div class="room" id="room">
 
-        <div class="window">☼</div>
-
+        <div class="window">☀️</div>
         <div class="plant">🌱</div>
-
         <div class="rug"></div>
+        <div class="toy">🧶</div>
+        <div class="food">🍓</div>
 
-        <div class="final-cat" id="finalCat">
+        <div class="final-cat">
 
-          <div class="final-ear left"></div>
-          <div class="final-ear right"></div>
+          <div class="final-ear ear1"></div>
+          <div class="final-ear ear2"></div>
 
           <div class="final-face">
 
-            <div class="final-eye left-eye"></div>
-            <div class="final-eye right-eye"></div>
+            <div class="final-eye eye1"></div>
+            <div class="final-eye eye2"></div>
 
             <div class="final-nose">♥</div>
 
-            <div class="whisker w1"></div>
-            <div class="whisker w2"></div>
-
           </div>
 
-          <div class="collar-band" id="finalCollar"></div>
-
-          <div class="body"></div>
-
+          <div class="final-body"></div>
+          <div class="final-collar" id="finalCollar"></div>
           <div class="tail"></div>
 
         </div>
 
-        <div class="food">🍓</div>
-        <div class="toy">🧶</div>
-
       </div>
 
-      <p class="final-text">
-        <span id="finalName2">قطتك</span> تعيش الآن في بيتها الجديد 🐾
+      <p>
+        <span id="finalName2">قطتك</span>
+        عايشة الآن في بيتها الجديد 🐾
       </p>
 
     </div>
@@ -223,7 +194,7 @@
 
 </div>
 
-<script src="script.js"></script>
+<script src="Script.js"></script>
 
 </body>
 </html>
