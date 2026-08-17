@@ -1,33 +1,26 @@
-let gameData = {
-  fur: "#d9b58c",
-  eyes: "#6bc7d1",
-  name: "قطتك",
-  collar: "#e98eae",
-  house: "pink"
+let cat = {
+  fur: "#d9ad83",
+  eyes: "#69c9dc",
+  name: "",
+  collar: "#e88dab",
+  house: "#ffe0ec"
 };
 
-
-function goTo(screenId) {
+function goTo(id) {
 
   document.querySelectorAll(".screen").forEach(screen => {
     screen.classList.remove("active");
   });
 
-  document.getElementById(screenId).classList.add("active");
+  document.getElementById(id).classList.add("active");
 }
 
 
-/* لون القطة */
+function chooseFur(color) {
 
-function chooseFur(color, button) {
+  cat.fur = color;
 
-  gameData.fur = color;
-
-  document.querySelectorAll(".cat").forEach(cat => {
-    cat.style.setProperty("--fur", color);
-  });
-
-  document.querySelectorAll(".face").forEach(face => {
+  document.querySelectorAll(".cat-face").forEach(face => {
     face.style.background = color;
   });
 
@@ -37,113 +30,84 @@ function chooseFur(color, button) {
 
   setTimeout(() => {
     goTo("eyesScreen");
-  }, 400);
+  }, 350);
 }
 
 
-/* لون العيون */
+function chooseEyes(color) {
 
-function chooseEyes(color, button) {
+  cat.eyes = color;
 
-  gameData.eyes = color;
-
-  document.querySelectorAll(".eye").forEach(eye => {
+  document.querySelectorAll(".cat-eye").forEach(eye => {
     eye.style.background = color;
   });
 
   setTimeout(() => {
     goTo("nameScreen");
-  }, 400);
+  }, 350);
 }
 
-
-/* الاسم */
 
 function saveName() {
 
   const input = document.getElementById("nameInput");
+  const name = input.value.trim();
 
-  if (input.value.trim() === "") {
+  if (name === "") {
+    input.placeholder = "اكتبي اسم قطتك أول 🥺";
     input.focus();
-    input.placeholder = "اكتبي اسمها أول 🥺";
     return;
   }
 
-  gameData.name = input.value.trim();
+  cat.name = name;
 
   goTo("collarScreen");
 }
 
 
-/* الطوق */
+function chooseCollar(color) {
 
-function chooseCollar(color, button) {
-
-  gameData.collar = color;
+  cat.collar = color;
 
   setTimeout(() => {
     goTo("houseScreen");
-  }, 400);
+  }, 350);
 }
 
 
-/* البيت */
+function chooseHouse(color) {
 
-function chooseHouse(house) {
+  cat.house = color;
 
-  gameData.house = house;
-
-  setupFinalRoom();
+  setupFinalCat();
 
   setTimeout(() => {
     goTo("finalScreen");
-  }, 400);
+  }, 350);
 }
 
 
-/* تجهيز النهاية */
+function setupFinalCat() {
 
-function setupFinalRoom() {
+  document.getElementById("finalName").textContent = cat.name;
+  document.getElementById("finalName2").textContent = cat.name;
 
-  document.getElementById("finalName").textContent = gameData.name;
-  document.getElementById("finalName2").textContent = gameData.name;
+  const face = document.querySelector(".final-face");
+  const body = document.querySelector(".final-body");
+  const ears = document.querySelectorAll(".final-ear");
 
-  const finalCat = document.getElementById("finalCat");
-
-  const face = finalCat.querySelector(".final-face");
-  const ears = finalCat.querySelectorAll(".final-ear");
-  const body = finalCat.querySelector(".body");
-
-  face.style.background = gameData.fur;
-  body.style.background = gameData.fur;
+  face.style.background = cat.fur;
+  body.style.background = cat.fur;
 
   ears.forEach(ear => {
-    ear.style.background = gameData.fur;
+    ear.style.background = cat.fur;
   });
 
   document.querySelectorAll(".final-eye").forEach(eye => {
-    eye.style.background = gameData.eyes;
+    eye.style.background = cat.eyes;
   });
 
-  document.getElementById("finalCollar").style.background =
-    gameData.collar;
+  document.getElementById("finalCollar").style.background = cat.collar;
 
-
-  const room = document.querySelector(".room");
-
-  if (gameData.house === "pink") {
-    room.style.background = "#ffeaf2";
-  }
-
-  if (gameData.house === "blue") {
-    room.style.background = "#e0f1ff";
-  }
-
-  if (gameData.house === "green") {
-    room.style.background = "#e2f3df";
-  }
-
-  if (gameData.house === "purple") {
-    room.style.background = "#eee5ff";
-  }
+  document.getElementById("room").style.background = cat.house;
 }
