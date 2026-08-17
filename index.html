@@ -9,41 +9,221 @@
 
 <body>
 
-  <div class="game">
+<div class="game">
 
-    <div class="top">
-      <h1>🐾 تبنّي قطتك</h1>
-      <p>اصنعي قطتك الخاصة!</p>
+  <!-- البداية -->
+  <section class="screen active" id="startScreen">
+    <div class="pixel-box">
+      <div class="big-paw">🐾</div>
+      <h1>اصنع قطتك</h1>
+      <p>اصنع صديقك الصغير واختر كل تفاصيله ♡</p>
+      <button onclick="goTo('furScreen')">ابدأ اللعبة ✦</button>
     </div>
+  </section>
 
-    <div class="cat-area">
-      <div id="cat">🐱</div>
-    </div>
 
-    <div class="card">
+  <!-- لون القطة -->
+  <section class="screen" id="furScreen">
+    <div class="pixel-box">
+      <span class="step">1 / 6</span>
+      <h1>اختر لون قطتك</h1>
 
-      <h2>اختاري لون قطتك 🎨</h2>
-
-      <div class="colors">
-        <button onclick="changeCat('🐱')">🤎</button>
-        <button onclick="changeCat('🐈')">🩶</button>
-        <button onclick="changeCat('🐈‍⬛')">🖤</button>
-        <button onclick="changeCat('😺')">🤍</button>
+      <div class="preview">
+        <div class="cat" id="furPreview">
+          <div class="ear left"></div>
+          <div class="ear right"></div>
+          <div class="face">
+            <div class="eye eye-left"></div>
+            <div class="eye eye-right"></div>
+            <div class="nose">•</div>
+          </div>
+        </div>
       </div>
 
-      <h2>وش اسمها؟ 🏷️</h2>
+      <div class="choices fur-choices">
+        <button onclick="chooseFur('#d9b58c', this)">🤎</button>
+        <button onclick="chooseFur('#a9adb5', this)">🩶</button>
+        <button onclick="chooseFur('#29272c', this)">🖤</button>
+        <button onclick="chooseFur('#e9a35b', this)">🧡</button>
+      </div>
+    </div>
+  </section>
 
-      <input id="catName" placeholder="اكتبي اسم قطتك">
 
-      <button class="next" onclick="finish()">تبنّي القطة 💗</button>
+  <!-- لون العيون -->
+  <section class="screen" id="eyesScreen">
+    <div class="pixel-box">
+      <span class="step">2 / 6</span>
+      <h1>اختر لون عيونها</h1>
+
+      <div class="preview">
+        <div class="cat" id="eyesPreview">
+          <div class="ear left"></div>
+          <div class="ear right"></div>
+          <div class="face">
+            <div class="eye eye-left"></div>
+            <div class="eye eye-right"></div>
+            <div class="nose">•</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="eye-choices">
+        <button onclick="chooseEyes('#6bc7d1', this)">أزرق</button>
+        <button onclick="chooseEyes('#72bd6c', this)">أخضر</button>
+        <button onclick="chooseEyes('#8b633f', this)">بني</button>
+        <button onclick="chooseEyes('#c69be8', this)">بنفسجي</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- الاسم -->
+  <section class="screen" id="nameScreen">
+    <div class="pixel-box">
+      <span class="step">3 / 6</span>
+      <h1>وش اسم قطتك؟</h1>
+
+      <div class="name-cat">🐱</div>
+
+      <input
+        id="nameInput"
+        type="text"
+        maxlength="15"
+        placeholder="اكتب اسمها هنا..."
+      >
+
+      <button onclick="saveName()">هذا اسمها ♡</button>
+    </div>
+  </section>
+
+
+  <!-- الطوق -->
+  <section class="screen" id="collarScreen">
+    <div class="pixel-box">
+      <span class="step">4 / 6</span>
+      <h1>اختار طوقها 🎀</h1>
+
+      <div class="collars">
+
+        <button class="collar green" onclick="chooseCollar('#72b987', this)">
+          <span></span>
+          أخضر
+        </button>
+
+        <button class="collar blue" onclick="chooseCollar('#70a9df', this)">
+          <span></span>
+          أزرق
+        </button>
+
+        <button class="collar pink" onclick="chooseCollar('#e98eae', this)">
+          <span></span>
+          وردي
+        </button>
+
+        <button class="collar purple" onclick="chooseCollar('#a98ad4', this)">
+          <span></span>
+          بنفسجي
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- البيت -->
+  <section class="screen" id="houseScreen">
+    <div class="pixel-box">
+      <span class="step">5 / 6</span>
+      <h1>اختار بيتها 🏠</h1>
+
+      <div class="houses">
+
+        <button class="house house1" onclick="chooseHouse('pink')">
+          <div>🏠</div>
+          <span>البيت الوردي</span>
+        </button>
+
+        <button class="house house2" onclick="chooseHouse('blue')">
+          <div>🏡</div>
+          <span>البيت الأزرق</span>
+        </button>
+
+        <button class="house house3" onclick="chooseHouse('green')">
+          <div>🏠</div>
+          <span>البيت الأخضر</span>
+        </button>
+
+        <button class="house house4" onclick="chooseHouse('purple')">
+          <div>🏡</div>
+          <span>البيت البنفسجي</span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- النهاية -->
+  <section class="screen" id="finalScreen">
+
+    <div class="final-game" id="finalGame">
+
+      <div class="final-title">
+        <span>♡</span>
+        <h1 id="finalName">قطتك</h1>
+        <span>♡</span>
+      </div>
+
+      <div class="room">
+
+        <div class="window">☼</div>
+
+        <div class="plant">🌱</div>
+
+        <div class="rug"></div>
+
+        <div class="final-cat" id="finalCat">
+
+          <div class="final-ear left"></div>
+          <div class="final-ear right"></div>
+
+          <div class="final-face">
+
+            <div class="final-eye left-eye"></div>
+            <div class="final-eye right-eye"></div>
+
+            <div class="final-nose">♥</div>
+
+            <div class="whisker w1"></div>
+            <div class="whisker w2"></div>
+
+          </div>
+
+          <div class="collar-band" id="finalCollar"></div>
+
+          <div class="body"></div>
+
+          <div class="tail"></div>
+
+        </div>
+
+        <div class="food">🍓</div>
+        <div class="toy">🧶</div>
+
+      </div>
+
+      <p class="final-text">
+        <span id="finalName2">قطتك</span> تعيش الآن في بيتها الجديد 🐾
+      </p>
 
     </div>
 
-    <div id="result"></div>
+  </section>
 
-  </div>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
