@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #fcecf5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: rtl;
+}
+
+.game {
+  width: 90%;
+  max-width: 430px;
+  text-align: center;
+}
+
+.top {
+  margin-bottom: 15px;
+}
+
+.top h1 {
+  margin-bottom: 5px;
+  color: #7d5268;
+}
+
+.top p {
+  color: #a2768d;
+}
+
+.cat-area {
+  background: #fff7fb;
+  border-radius: 30px;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px #e7cbd9;
+}
+
+#cat {
+  font-size: 110px;
+  transition: 0.3s;
+}
+
+.card {
+  background: white;
+  margin-top: 18px;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px #ead2df;
+}
+
+h2 {
+  font-size: 18px;
+  color: #765466;
+}
+
+.colors {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.colors button {
+  border: none;
+  background: #fff0f7;
+  border-radius: 15px;
+  font-size: 28px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.colors button:active {
+  transform: scale(0.9);
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #f1d5e3;
+  border-radius: 15px;
+  outline: none;
+  text-align: center;
+  font-size: 16px;
+}
+
+.next {
+  width: 100%;
+  margin-top: 15px;
+  padding: 14px;
+  border: none;
+  border-radius: 15px;
+  background: #d88bad;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #765466;
+}
